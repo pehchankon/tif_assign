@@ -1,3 +1,5 @@
+import '../constants.dart';
+
 class Event {
   final int id;
   final String title;
@@ -9,6 +11,7 @@ class Event {
   final String venueName;
   final String venueCity;
   final String venueCountry;
+  final String venueCountryCode;
 
   const Event({
     required this.id,
@@ -21,6 +24,7 @@ class Event {
     required this.venueName,
     required this.venueCity,
     required this.venueCountry,
+    required this.venueCountryCode,
   });
 
   factory Event.fromJson(Map<String, dynamic> json) {
@@ -35,6 +39,16 @@ class Event {
       venueName: json['venue_name'] as String,
       venueCity: json['venue_city'] as String,
       venueCountry: json['venue_country'] as String,
+      venueCountryCode: _findCountryID(json['venue_country']),
     );
+  }
+
+  static String _findCountryID(String venueCountry) {
+    for (var e in kCountriesEnglish) {
+      if (e['name'] == venueCountry) {
+        return e['code'] ?? '';
+      }
+    }
+    return '';
   }
 }

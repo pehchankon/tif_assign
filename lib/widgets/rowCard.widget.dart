@@ -43,18 +43,10 @@ class RowCard extends StatelessWidget {
     final String format = isSearchPage
         ? 'd\'${_getDayOfMonthSuffix(event.dateTime.day)}\' MMM - EEE - h:mm a'
         : 'E, MMM d • h:mm a';
-    final String formattedDateTime = DateFormat(format).format(event.dateTime);
-    late String countryCode;
-
-    for (var e in kCountriesEnglish) {
-      if (e['name'] == event.venueCountry) {
-        countryCode = e['code'] ?? '';
-        break;
-      }
-    }
+    final String formattedDateTime = DateFormat(format).format(event.dateTime.toLocal());
 
     final String location =
-        '${event.venueName} • ${event.venueCity}, $countryCode';
+        '${event.venueName} • ${event.venueCity}, ${event.venueCountryCode}';
 
     return GestureDetector(
       onTap: () => Navigator.push(
