@@ -52,7 +52,7 @@ class RowCard extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => EventDetailsPage(),
+          builder: (context) => EventDetailsPage(eventId: event.id),
         ),
       ),
       child: Container(

@@ -32,7 +32,9 @@ class EventRepository {
     return events;
   }
 
-  // Future<Event> fetchEventDetails(int eventId) async {
-  //   final data = await apiClient.fetchData('event/$eventId');
-  // }
+  Future<Event> fetchEventDetails(int eventId) async {
+    final data = await apiClient.fetchData('event/$eventId');
+    final eventJson = data['content']['data'];
+    return Event.fromJson(eventJson);
+  }
 }
