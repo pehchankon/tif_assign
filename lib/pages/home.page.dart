@@ -38,7 +38,9 @@ class _HomePageState extends State<HomePage> {
   AppBar _appBar(BuildContext context) {
     return AppBar(
       titleSpacing: 32,
-      systemOverlayStyle: SystemUiOverlayStyle.dark,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.dark,
+      ),
       iconTheme: IconThemeData(color: AppColors.primaryPurpleColor),
       backgroundColor: Colors.transparent,
       toolbarHeight: 60,
