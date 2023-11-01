@@ -9,14 +9,17 @@ Future main() async {
     DeviceOrientation.portraitDown,
   ]);
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ),
   );
 
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'Notes SQLite';
+  static final String title = 'title';
 
   @override
   Widget build(BuildContext context) => MaterialApp(
