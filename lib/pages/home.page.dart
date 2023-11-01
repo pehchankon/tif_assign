@@ -2,12 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../widgets/loader.widget.dart';
 import 'searchEvents.page.dart';
 import 'package:flutter/services.dart';
 import '../widgets/rowCard.widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../data/eventRepository.dart';
+import '../models/event.model.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late List<Event> events;
+  bool isLoading = true;
+  late EventRepository eventRepository;
+
+  @override
+  void initState() {
+    eventRepository = RepositoryProvider.of<EventRepository>(context);
+    _init();
+    super.initState();
+  }
+
+  void _init() async {
+    events = await eventRepository.fetchAllEvents();
+    setState(() => isLoading = false);
+  }
 
   AppBar _appBar(BuildContext context) {
     return AppBar(
@@ -49,13 +74,14 @@ class HomePage extends StatelessWidget {
       appBar: _appBar(context),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-        child: Column(children: [
-          RowCard(),
-          RowCard(),
-          RowCard(),
-          RowCard(),
-          RowCard(),
-        ]),
+        child: isLoading
+            ? Loader()
+            : ListView.builder(
+                itemCount: events.length,
+                itemBuilder: (context, index) => RowCard(
+                  event: events[index],
+                ),
+              ),
       ),
     );
   }
