@@ -8,6 +8,9 @@ Future main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+  );
 
   runApp(MyApp());
 }
@@ -17,17 +20,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: title,
-      themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primaryColor: Colors.black,
-        scaffoldBackgroundColor: Color(0xFFFFFFFF),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+        debugShowCheckedModeBanner: false,
+        title: title,
+        themeMode: ThemeMode.light,
+        theme: ThemeData(
+          primaryColor: Colors.black,
+          scaffoldBackgroundColor: Color(0xFFFFFFFF),
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
         ),
-      ),
-      home: HomePage(),
-    );
+        home: HomePage(),
+      );
 }
