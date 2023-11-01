@@ -34,19 +34,17 @@ class _HomePageState extends State<HomePage> {
 
   AppBar _appBar(BuildContext context) {
     return AppBar(
+      titleSpacing: 32,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
       iconTheme: IconThemeData(color: Color(0xFF120D26)),
       backgroundColor: Colors.transparent,
       toolbarHeight: 60,
-      title: Padding(
-        padding: const EdgeInsets.only(left: 8.0),
-        child: Text(
+      title: Text(
           'Events',
           style: GoogleFonts.inter(
               color: Color(0xFF120D26),
               fontWeight: FontWeight.w500,
               fontSize: 24),
-        ),
       ),
       actions: [
         IconButton(

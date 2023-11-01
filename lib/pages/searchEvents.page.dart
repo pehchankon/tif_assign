@@ -46,6 +46,8 @@ class _SearchEventsPageState extends State<SearchEventsPage> {
   }
 
   final AppBar _appBar = AppBar(
+    leadingWidth: 65,
+    titleSpacing: -10,
     systemOverlayStyle: SystemUiOverlayStyle.dark,
     iconTheme: IconThemeData(color: Color(0xFF120D26)), //TODO: constants
     backgroundColor: Colors.transparent,

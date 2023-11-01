@@ -28,6 +28,8 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
 
   AppBar _childAppBar() {
     return AppBar(
+      leadingWidth: 65,
+      titleSpacing: -15,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarIconBrightness: isLoading ? Brightness.dark : Brightness.light,
       ),
@@ -47,7 +49,10 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.center,
-                    colors: [Colors.black.withOpacity(0.6), Colors.transparent],
+                    colors: [
+                      Colors.black.withOpacity(0.6),
+                      Colors.transparent,
+                    ],
                   ),
                 ),
               ),
@@ -63,6 +68,23 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
               fontSize: 24),
         ),
       ),
+      actions: [
+        !isLoading?Padding(
+          padding: const EdgeInsets.only(right: 15),
+          child: IconButton(
+            icon: Container(
+              width: 33,
+              height: 33,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white.withOpacity(0.3),
+              ),
+              child: Icon(Icons.bookmark_rounded, size: 18),
+            ),
+            onPressed: () {},
+          ),
+        ):Container(),
+      ],
     );
   }
 
