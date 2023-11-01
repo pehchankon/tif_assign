@@ -10,6 +10,7 @@ import '../widgets/eventDetailsRowItem.widget.dart';
 import '../widgets/loader.widget.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../constants.dart';
 
 class EventDetailsPage extends StatefulWidget {
   EventDetailsPage({super.key, required this.eventId});
@@ -133,13 +134,13 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                               DateFormat('d MMMM, yyyy').format(event.dateTime),
                           bottomText: DateFormat('EEEE, h:mma')
                               .format(event.dateTime.toLocal()),
-                          icon: SvgPicture.asset('assets/icons/date.svg'),
+                          icon: SvgPicture.asset(kDateIcon),
                         ),
                         EventDetailsRowItem(
                           topText: event.venueName,
                           bottomText:
                               '${event.venueCity}, ${event.venueCountryCode}',
-                          icon: SvgPicture.asset('assets/icons/location.svg'),
+                          icon: SvgPicture.asset(kLocationIcon),
                         ),
                         SizedBox(height: 20),
                         Text(

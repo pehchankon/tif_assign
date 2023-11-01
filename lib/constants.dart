@@ -1,6 +1,8 @@
 const String kBaseAPIUrl = 'https://sde-007.api.assignment.theinternetfolks.works/v1';
 
 const String kSearchIcon = 'assets/icons/search.svg';
+const String kDateIcon = 'assets/icons/date.svg';
+const String kLocationIcon = 'assets/icons/location.svg';
 
 const List<Map<String,String>> kCountriesEnglish = [
   {"name": "Afghanistan", "dial_code": "+93", "code": "AF"},
