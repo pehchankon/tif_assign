@@ -124,7 +124,7 @@ class EventListRowCard extends StatelessWidget {
                             Icon(
                               Icons.location_on,
                               size: 18,
-                              color: AppColors.greyColor,
+                              color: AppColors.lightGreyColor,
                             ),
                             Expanded(
                               child: SingleChildScrollView(
