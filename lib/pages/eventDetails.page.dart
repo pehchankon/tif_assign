@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:tif_assign/textStyles.dart';
+import '../colors.dart';
 import '../data/eventRepository.dart';
 import '../models/event.model.dart';
 import '../widgets/eventBookButton.widget.dart';
@@ -21,8 +22,7 @@ class EventDetailsPage extends StatefulWidget {
 class _EventDetailsPageState extends State<EventDetailsPage> {
   PreferredSize _appBar(BuildContext context) {
     return PreferredSize(
-        preferredSize: Size.fromHeight(
-            isLoading ? 60 : 200.0), // Set the height of the AppBar
+        preferredSize: Size.fromHeight(isLoading ? 60 : 200.0),
         child: _childAppBar());
   }
 
@@ -33,10 +33,9 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarIconBrightness: isLoading ? Brightness.dark : Brightness.light,
       ),
-      iconTheme:
-          IconThemeData(color: isLoading ? Color(0xFF120D26) : Colors.white),
+      iconTheme: IconThemeData(
+          color: isLoading ? AppColors.primaryPurpleColor : Colors.white),
       backgroundColor: Colors.transparent,
-      // toolbarHeight: 250,
       flexibleSpace: !isLoading
           ? Stack(children: [
               Image(
@@ -62,28 +61,29 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
         padding: const EdgeInsets.only(left: 8.0),
         child: Text(
           'Event Details',
-          style: GoogleFonts.inter(
-              color: isLoading ? Color(0xFF120D26) : Colors.white,
-              fontWeight: FontWeight.w500,
-              fontSize: 24),
+          style: isLoading
+              ? AppTextStyles.primaryPurpleBoldText24
+              : AppTextStyles.whiteBoldText24,
         ),
       ),
       actions: [
-        !isLoading?Padding(
-          padding: const EdgeInsets.only(right: 15),
-          child: IconButton(
-            icon: Container(
-              width: 33,
-              height: 33,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white.withOpacity(0.3),
-              ),
-              child: Icon(Icons.bookmark_rounded, size: 18),
-            ),
-            onPressed: () {},
-          ),
-        ):Container(),
+        !isLoading
+            ? Padding(
+                padding: const EdgeInsets.only(right: 15),
+                child: IconButton(
+                  icon: Container(
+                    width: 33,
+                    height: 33,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white.withOpacity(0.3),
+                    ),
+                    child: Icon(Icons.bookmark_rounded, size: 18),
+                  ),
+                  onPressed: () {},
+                ),
+              )
+            : Container(),
       ],
     );
   }
@@ -120,9 +120,9 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                       children: [
                         Text(
                           event.title,
-                          style: GoogleFonts.inter(fontSize: 35),
+                          style: AppTextStyles.primaryPurpleText35,
                         ),
-                        SizedBox(height: 10), //TODO: add const style
+                        SizedBox(height: 10),
                         EventDetailsRowItem(
                           topText: event.organiserName,
                           bottomText: 'Organizer',
@@ -144,18 +144,12 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                         SizedBox(height: 20),
                         Text(
                           'About Event',
-                          style: GoogleFonts.inter(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18, //TODO: fix
-                          ),
+                          style: AppTextStyles.primaryPurpleBoldText18,
                         ),
                         SizedBox(height: 8),
                         Text(
                           event.description,
-                          style: GoogleFonts.inter(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16, //TODO: fix
-                          ),
+                          style: AppTextStyles.primaryPurpleText16,
                         ),
                         SizedBox(height: 150),
                       ],

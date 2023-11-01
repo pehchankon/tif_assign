@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:tif_assign/textStyles.dart';
 
 class EventDetailsRowItem extends StatelessWidget {
   const EventDetailsRowItem(
@@ -28,18 +28,12 @@ class EventDetailsRowItem extends StatelessWidget {
             children: [
               Text(
                 topText,
-                style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                ),
+                style: AppTextStyles.primaryPurpleBoldText16,
               ),
               Text(
                 bottomText,
-                style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                ),
-              ),
+                style: AppTextStyles.secondaryLightPurpleText12,
+              )
             ],
           ),
         ],

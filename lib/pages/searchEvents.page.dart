@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
+import 'package:tif_assign/textStyles.dart';
+import '../colors.dart';
 import '../widgets/loader.widget.dart';
 import '../widgets/eventListRowCard.widget.dart';
 import '../data/eventRepository.dart';
@@ -49,16 +51,12 @@ class _SearchEventsPageState extends State<SearchEventsPage> {
     leadingWidth: 65,
     titleSpacing: -10,
     systemOverlayStyle: SystemUiOverlayStyle.dark,
-    iconTheme: IconThemeData(color: Color(0xFF120D26)), //TODO: constants
+    iconTheme: IconThemeData(color: AppColors.primaryPurpleColor),
     backgroundColor: Colors.transparent,
     toolbarHeight: 60,
     title: Text(
       'Search',
-      style: GoogleFonts.inter(
-          //TODO: constants
-          color: Color(0xFF120D26),
-          fontWeight: FontWeight.w500,
-          fontSize: 24),
+      style: AppTextStyles.primaryPurpleBoldText24,
     ),
   );
 

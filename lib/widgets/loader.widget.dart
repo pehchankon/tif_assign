@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tif_assign/colors.dart';
 
 class Loader extends StatelessWidget {
   const Loader({super.key});
@@ -8,7 +9,7 @@ class Loader extends StatelessWidget {
     return Expanded(
       child: Center(
         child: CircularProgressIndicator(
-          color: Color.fromARGB(255, 106, 74, 144), //TODO: update color
+          color: AppColors.secondaryPurpleColor, //TODO: update color
         ),
       ),
     );

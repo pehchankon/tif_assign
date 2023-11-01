@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:tif_assign/colors.dart';
 import 'package:tif_assign/pages/eventDetails.page.dart';
+import 'package:tif_assign/textStyles.dart';
 import '../models/event.model.dart';
 import 'package:intl/intl.dart';
-import '../constants.dart';
 
 class EventListRowCard extends StatelessWidget {
   final String imgSrc;
@@ -61,12 +61,11 @@ class EventListRowCard extends StatelessWidget {
         height: 106,
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
-          // color: Colors.red[50],
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Color.fromRGBO(87, 92, 138, 0.06), //TODO: add palatte
+              color: Color.fromRGBO(87, 92, 138, 0.06),
               offset: Offset(0, 10),
               blurRadius: 35,
               spreadRadius: 0,
@@ -96,32 +95,24 @@ class EventListRowCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: isSearchPage
-                          ? MainAxisAlignment.spaceEvenly
+                          ? MainAxisAlignment.center
                           : MainAxisAlignment.start,
                       children: [
                         Text(
-                          isSearchPage
-                              ? formattedDateTime.toUpperCase()
-                              : formattedDateTime,
-                          style: GoogleFonts.inter(
-                            //TODO: fix styling
-                            color: Color.fromRGBO(
-                                86, 105, 255, 1), //TODO: add palatte
-                            fontSize: 13,
-                          ),
-                        ),
-                        SizedBox(height: isSearchPage ? 0 : 5),
+                            isSearchPage
+                                ? formattedDateTime.toUpperCase()
+                                : formattedDateTime,
+                            style: isSearchPage
+                                ? AppTextStyles.secondaryPurpleBoldText12
+                                : AppTextStyles.secondaryPurpleText13),
+                        SizedBox(height: isSearchPage ? 10 : 5),
                         Container(
                           padding: EdgeInsets.only(right: 8),
                           child: Text(
                             event.title,
-                            style: GoogleFonts.inter(
-                              //TODO: fix styling
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15,
-                              color: Color.fromRGBO(
-                                  18, 13, 38, 1), //TODO: add palatte
-                            ),
+                            style: isSearchPage
+                                ? AppTextStyles.primaryPurpleBoldText18
+                                : AppTextStyles.primaryPurpleBoldText15,
                           ),
                         ),
                       ],
@@ -133,18 +124,14 @@ class EventListRowCard extends StatelessWidget {
                             Icon(
                               Icons.location_on,
                               size: 18,
-                              color: Color.fromRGBO(
-                                  116, 118, 136, 1), //TODO: add palatte
+                              color: AppColors.greyColor,
                             ),
                             Expanded(
                               child: SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Text(
                                   location,
-                                  style: GoogleFonts.inter(
-                                    color: Color.fromRGBO(
-                                        116, 118, 136, 1), //TODO: add palatte
-                                  ),
+                                  style: AppTextStyles.greyText13,
                                 ),
                               ),
                             ),

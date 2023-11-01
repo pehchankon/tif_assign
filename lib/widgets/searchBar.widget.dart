@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:tif_assign/textStyles.dart';
+import '../colors.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({
@@ -15,7 +16,7 @@ class SearchBar extends StatelessWidget {
       children: [
         Icon(
           Icons.search,
-          color: Color.fromRGBO(121, 116, 231, 1),
+          color: AppColors.secondaryPurpleColor,
         ),
         SizedBox(width: 8),
         Container(
@@ -26,16 +27,11 @@ class SearchBar extends StatelessWidget {
         SizedBox(width: 8),
         Expanded(
           child: TextField(
+            cursorColor: AppColors.secondaryPurpleColor,
             controller: _textController,
-            style: GoogleFonts.inter(
-              fontSize: 20,
-              color: Colors.black,
-            ),
+            style: AppTextStyles.primaryPurpleBoldText20,
             decoration: InputDecoration(
-              hintStyle: GoogleFonts.inter(
-                fontSize: 20,
-                color: Color.fromRGBO(0, 0, 0, 0.3),
-              ),
+              hintStyle: AppTextStyles.inputHintText20,
               hintText: 'Type Event Name',
               border: InputBorder.none,
             ),

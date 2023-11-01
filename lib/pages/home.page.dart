@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../colors.dart';
+import '../textStyles.dart';
 import '../widgets/loader.widget.dart';
 import 'searchEvents.page.dart';
 import 'package:flutter/services.dart';
@@ -36,15 +37,12 @@ class _HomePageState extends State<HomePage> {
     return AppBar(
       titleSpacing: 32,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
-      iconTheme: IconThemeData(color: Color(0xFF120D26)),
+      iconTheme: IconThemeData(color: AppColors.primaryPurpleColor),
       backgroundColor: Colors.transparent,
       toolbarHeight: 60,
       title: Text(
         'Events',
-        style: GoogleFonts.inter(
-            color: Color(0xFF120D26),
-            fontWeight: FontWeight.w500,
-            fontSize: 24),
+        style: AppTextStyles.primaryPurpleBoldText24,
       ),
       actions: [
         IconButton(
