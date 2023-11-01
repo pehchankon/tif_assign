@@ -1,0 +1,1 @@
+String kBaseAPIUrl = 'https://sde-007.api.assignment.theinternetfolks.works/v1';

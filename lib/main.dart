@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../pages/home.page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'data/apiClient.dart';
+import 'data/eventRepository.dart';
+import 'constants.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +19,15 @@ Future main() async {
     ),
   );
 
-  runApp(MyApp());
+  final apiClient = ApiClient(kBaseAPIUrl);
+  final eventRepository = EventRepository(apiClient);
+
+  runApp(
+    RepositoryProvider<EventRepository>.value(
+      value: eventRepository,
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
