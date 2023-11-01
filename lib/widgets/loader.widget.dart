@@ -6,11 +6,9 @@ class Loader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Center(
-        child: CircularProgressIndicator(
-          color: AppColors.secondaryPurpleColor, //TODO: update color
-        ),
+    return Center(
+      child: CircularProgressIndicator(
+        color: AppColors.secondaryPurpleColor,
       ),
     );
   }

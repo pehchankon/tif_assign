@@ -73,7 +73,7 @@ class _SearchEventsPageState extends State<SearchEventsPage> {
             SearchBar(textController: _textController),
             SizedBox(height: 15),
             isLoading
-                ? Loader()
+                ? Expanded(child: Loader())
                 : Expanded(
                     child: ListView.builder(
                       itemCount: events.length,
