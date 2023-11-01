@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import '../widgets/loader.widget.dart';
-import '../widgets/rowCard.widget.dart';
+import '../widgets/eventListRowCard.widget.dart';
 import '../data/eventRepository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../models/event.model.dart';
@@ -75,14 +75,14 @@ class _SearchEventsPageState extends State<SearchEventsPage> {
             isLoading
                 ? Loader()
                 : Expanded(
-                  child: ListView.builder(
+                    child: ListView.builder(
                       itemCount: events.length,
-                      itemBuilder: (context, index) => RowCard(
+                      itemBuilder: (context, index) => EventListRowCard(
                         event: events[index],
                         isSearchPage: true,
                       ),
                     ),
-                ),
+                  ),
           ],
         ),
       ),

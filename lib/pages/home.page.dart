@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../widgets/loader.widget.dart';
 import 'searchEvents.page.dart';
 import 'package:flutter/services.dart';
-import '../widgets/rowCard.widget.dart';
+import '../widgets/eventListRowCard.widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../data/eventRepository.dart';
 import '../models/event.model.dart';
@@ -40,11 +40,11 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.transparent,
       toolbarHeight: 60,
       title: Text(
-          'Events',
-          style: GoogleFonts.inter(
-              color: Color(0xFF120D26),
-              fontWeight: FontWeight.w500,
-              fontSize: 24),
+        'Events',
+        style: GoogleFonts.inter(
+            color: Color(0xFF120D26),
+            fontWeight: FontWeight.w500,
+            fontSize: 24),
       ),
       actions: [
         IconButton(
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
             ? Loader()
             : ListView.builder(
                 itemCount: events.length,
-                itemBuilder: (context, index) => RowCard(
+                itemBuilder: (context, index) => EventListRowCard(
                   event: events[index],
                 ),
               ),
