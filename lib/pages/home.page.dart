@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'search.page.dart';
+import 'searchEvents.page.dart';
 import 'package:flutter/services.dart';
 
 class HomePage extends StatelessWidget {
@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => SearchPage()),
+              MaterialPageRoute(builder: (context) => SearchEventsPage()),
             );
           },
         ),
