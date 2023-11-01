@@ -22,7 +22,10 @@ class AppTextStyles {
     color: AppColors.primaryPurpleColor,
     fontSize: 35,
   );
-  static final TextStyle primaryPurpleText16 = primaryPurpleText35.copyWith(fontSize: 16);
+  static final TextStyle primaryPurpleText16 = primaryPurpleText35.copyWith(
+    fontSize: 16,
+    height: 1.5,
+  );
 
 
   //// secondary purple bold text
