@@ -10,7 +10,7 @@ class EventDetailsRowItem extends StatelessWidget {
 
   final String topText;
   final String bottomText;
-  final Image icon;
+  final Widget icon;
 
   @override
   Widget build(BuildContext context) {

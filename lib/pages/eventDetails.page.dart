@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,9 +7,8 @@ import '../models/event.model.dart';
 import '../widgets/eventBookButton.widget.dart';
 import '../widgets/eventDetailsRowItem.widget.dart';
 import '../widgets/loader.widget.dart';
-import 'searchEvents.page.dart';
 import 'package:flutter/services.dart';
-import '../widgets/rowCard.widget.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class EventDetailsPage extends StatefulWidget {
   EventDetailsPage({super.key, required this.eventId});
@@ -111,14 +109,15 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                         EventDetailsRowItem(
                           topText:
                               DateFormat('d MMMM, yyyy').format(event.dateTime),
-                          bottomText:
-                              DateFormat('EEEE, h:mma').format(event.dateTime.toLocal()),
-                          icon: Image.network(event.organiserIcon),
+                          bottomText: DateFormat('EEEE, h:mma')
+                              .format(event.dateTime.toLocal()),
+                          icon: SvgPicture.asset('assets/icons/date.svg'),
                         ),
                         EventDetailsRowItem(
                           topText: event.venueName,
-                          bottomText: '${event.venueCity}, ${event.venueCountryCode}',
-                          icon: Image.network(event.organiserIcon),
+                          bottomText:
+                              '${event.venueCity}, ${event.venueCountryCode}',
+                          icon: SvgPicture.asset('assets/icons/location.svg'),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -151,7 +150,10 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                         gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: [Colors.white.withOpacity(0), Colors.white],
+                          colors: [
+                            Colors.white.withOpacity(0),
+                            Colors.white,
+                          ],
                         ),
                       ),
                     ),
