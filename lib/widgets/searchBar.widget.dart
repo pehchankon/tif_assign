@@ -18,12 +18,10 @@ class SearchBar extends StatelessWidget {
           color: Color.fromRGBO(121, 116, 231, 1),
         ),
         SizedBox(width: 8),
-        Text(
-          '|',
-          style: TextStyle(
-            fontSize: 24,
-            color: Color.fromRGBO(121, 116, 231, 1),
-          ),
+        Container(
+          width: 1,
+          height: 26,
+          color: Color.fromRGBO(121, 116, 231, 1),
         ),
         SizedBox(width: 8),
         Expanded(
