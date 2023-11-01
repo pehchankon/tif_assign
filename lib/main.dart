@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'data/apiClient.dart';
 import 'data/eventRepository.dart';
 import 'constants.dart';
+import 'package:sizer/sizer.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,7 @@ Future main() async {
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: Colors.white, 
+      systemNavigationBarColor: Colors.white,
     ),
   );
 
@@ -35,18 +36,21 @@ class MyApp extends StatelessWidget {
   static final String title = 'title';
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: title,
-        themeMode: ThemeMode.light,
-        theme: ThemeData(
-          primaryColor: Colors.black,
-          scaffoldBackgroundColor: Color(0xFFFFFFFF),
-          appBarTheme: AppBarTheme(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
+  Widget build(BuildContext context) =>
+      Sizer(builder: (context, orientation, deviceType) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: title,
+          themeMode: ThemeMode.light,
+          theme: ThemeData(
+            primaryColor: Colors.black,
+            scaffoldBackgroundColor: Color(0xFFFFFFFF),
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+            ),
           ),
-        ),
-        home: HomePage(),
-      );
+          home: HomePage(),
+        );
+      });
 }
