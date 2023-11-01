@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tif_assign/constants.dart';
 import '../colors.dart';
 import '../textStyles.dart';
 import '../widgets/loader.widget.dart';
@@ -46,7 +48,10 @@ class _HomePageState extends State<HomePage> {
       ),
       actions: [
         IconButton(
-          icon: Icon(Icons.search),
+          icon: SvgPicture.asset(
+            kSearchIcon,
+            color: AppColors.primaryPurpleColor,
+          ),
           onPressed: () {
             Navigator.push(
               context,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tif_assign/constants.dart';
 import 'package:tif_assign/textStyles.dart';
 import '../colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({
@@ -14,9 +16,8 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          Icons.search,
-          color: AppColors.secondaryPurpleColor,
+        SvgPicture.asset(
+          kSearchIcon,
         ),
         SizedBox(width: 8),
         Container(
