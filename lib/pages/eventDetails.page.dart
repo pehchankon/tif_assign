@@ -158,19 +158,22 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
-                    child: Container(
-                      alignment: Alignment(0, 0.75),
-                      child: BookButton(),
-                      width: double.infinity,
-                      height: 180,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.white.withOpacity(0),
-                            Colors.white,
-                          ],
+                    child: IgnorePointer(
+                      ignoring: true,
+                      child: Container(
+                        alignment: Alignment(0, 0.75),
+                        child: BookButton(),
+                        width: double.infinity,
+                        height: 180,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.white.withOpacity(0),
+                              Colors.white,
+                            ],
+                          ),
                         ),
                       ),
                     ),
