@@ -1,7 +1,5 @@
 import 'package:http/http.dart' as http;
-import '../models/event.model.dart';
 import 'dart:convert';
-import '../constants.dart';
 
 class ApiClient {
   final String baseUrl;
